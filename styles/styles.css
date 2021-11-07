@@ -25,6 +25,42 @@ a {
   color: rgb(55, 112, 255);
   text-decoration: none;
 }
+a:active {
+  border-bottom: 1px solid rgb(55, 112, 255);
+}
+.btn-full {
+  outline: none;
+  border: none;
+  color: white;
+  font-size: 1.3em;
+  background-color: rgb(55, 112, 255);
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.btn-sm {
+  outline: none;
+  border: none;
+  color: white;
+  font-size: 1em;
+  width: fit-content;
+  background-color: rgb(55, 112, 255);
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.btn-lg {
+  outline: none;
+  border: none;
+  color: white;
+  font-size: 1.2em;
+  width: fit-content;
+  background-color: rgb(55, 112, 255);
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 /* navigation bar */
 nav {
   position: sticky;
@@ -69,7 +105,7 @@ nav ul li:nth-child(2) :hover {
   margin: 40px auto;
   box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.1);
 }
-.signup_container form {
+form {
   display: flex;
   flex-direction: column;
 }
@@ -79,11 +115,13 @@ nav ul li:nth-child(2) :hover {
   margin-bottom: 10px;
 }
 
-.signup_container form label {
+label {
   color: rgb(92, 104, 109);
   font-size: 1.2em;
+  margin-bottom: 5px;
 }
-.signup_container input {
+form input,
+form textarea {
   outline: none;
   margin-bottom: 10px;
   padding: 10px;
@@ -100,22 +138,90 @@ nav ul li:nth-child(2) :hover {
   color: rgb(97, 107, 112);
 }
 
-.signup_container input:focus,
-.signup_container input:hover {
+form input:focus,
+form input:hover {
   border: 2px solid rgb(55, 112, 255);
 }
-.signup_container button {
-  outline: none;
-  border: none;
-  color: white;
-  font-size: 1.3em;
-  background-color: rgb(55, 112, 255);
-  padding: 10px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-}
+
 .signup_container p {
   color: rgb(92, 104, 109);
   margin-top: 10px;
   text-align: center;
+}
+
+/* homepage */
+main {
+  padding: 30px;
+}
+.showcase {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 200px;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: rgb(0 0 0 / 8%) 0px 1px 4px 0px;
+  padding: 20px;
+}
+.showcase img {
+  height: 100%;
+}
+
+.showcase h1 {
+  font-size: 3.5em;
+  font-weight: 400;
+  color: rgb(97, 107, 112);
+}
+
+.showcase h1 span {
+  color: rgb(55, 112, 255);
+}
+
+.search_bar {
+  display: flex;
+  margin-top: 20px;
+  height: 60px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 2px solid rgb(228, 234, 235);
+  background-color: white;
+}
+.search_bar input {
+  width: 100%;
+  height: 100%;
+  outline: none;
+  border: none;
+  color: rgb(92, 104, 109);
+  font-size: 1.2em;
+}
+
+.search_bar:focus-within {
+  border: 2px solid rgb(55, 112, 255);
+}
+
+/* organise hackathon */
+.organise_container {
+  width: 800px;
+  margin: auto;
+  height: fit-content;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: rgb(0 0 0 / 8%) 0px 1px 4px 0px;
+  padding: 25px;
+}
+
+.input_col {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-right: 10px;
+}
+.organise_container p {
+  margin-top: 0;
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+.input_col_cont {
+  display: flex;
+  width: 100%;
 }

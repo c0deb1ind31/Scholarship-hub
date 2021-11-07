@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scholarship Hub</title>
+    <link rel="stylesheet" href="/styles/styles.css" />
+  </head>
+  <body>
+    <nav>
+      <p>Scholarship Hub</p>
+      <ul>
+        <li><a href="/index.html">Explore</a></li>
+        <li><a href="/pages/dashboard.html">Dashboard</a></li>
+        <li>
+          <a
+            href="/pages/organize.html"
+            style="color: rgb(55, 112, 255); font-weight: 600"
+            >Organise a Scholarship</a
+          >
+        </li>
+        <li>
+          <a
+            href="/pages/signin.html"
+            style="
+              background-color: rgb(55, 112, 255);
+              padding: 10px 15px;
+              border-radius: 10px;
+              color: white;
+            "
+            >sign in</a
+          >
+        </li>
+      </ul>
+    </nav>
+    <main>
+      <div class="organise_container">
+        <p>Organise a Scholarship</p>
+        <form action="">
+          <div class="input_col_cont">
+            <div class="input_col">
+              <label for="orgname">Organisation Name</label>
+              <input type="text" name="orgname" />
+            </div>
+            <div class="input_col">
+              <label for="org">Organiser Name</label>
+              <input type="text" name="org" />
+            </div>
+          </div>
+          <label for="orgemail">Organizer Email</label>
+          <input type="email" name="orgemail" />
+          <label for="title">Scholarship Title</label>
+          <input type="text" name="title" id="" />
+          <label for="desc">Scholarship Discription</label>
+          <textarea name="desc" id="" cols="10" rows="5"></textarea>
+          <label for="elig">Scholarship Eligibility</label>
+          <textarea name="elig" id="" cols="20" rows="10"></textarea>
+          <div class="input_col_cont">
+            <div class="input_col">
+              <label for="regstart">Registration Start Date</label>
+              <input type="date" name="regstart" />
+            </div>
+            <div class="input_col">
+                <label for="regend">Registration End Date</label>
+                <input type="date" name="regend" />
+              </div>
+          </div>
+          <button class="btn-lg">Submit</button>
+        </form>
+      </div>
+    </main>
+    <footer></footer>
+  </body>
+</html>
