@@ -1,0 +1,121 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  background-color: rgb(245, 247, 247);
+  font-family: "Nunito Sans", Arial, sans-serif;
+  font-size: 16px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: rgb(55, 112, 255);
+  text-decoration: none;
+}
+/* navigation bar */
+nav {
+  position: sticky;
+  top: 0;
+  padding: 25px;
+  height: 75px;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.1);
+  background-color: white;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+}
+nav ul li {
+  margin-left: 20px;
+}
+nav a {
+  font-size: 1.2em;
+  color: rgb(97, 107, 112);
+}
+nav p {
+  color: rgb(55, 112, 255);
+  font-size: 1.5em;
+  font-weight: 600;
+}
+nav ul li:nth-child(1) :hover,
+nav ul li:nth-child(2) :hover {
+  color: black;
+}
+
+/* signin page */
+.signup_container {
+  width: 400px;
+  height: fit-content;
+  padding: 25px;
+  border-radius: 10px;
+  background-color: white;
+  margin: 40px auto;
+  box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.1);
+}
+.signup_container form {
+  display: flex;
+  flex-direction: column;
+}
+.signup_container #form_heading {
+  margin-top: 0;
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.signup_container form label {
+  color: rgb(92, 104, 109);
+  font-size: 1.2em;
+}
+.signup_container input {
+  outline: none;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 2px solid rgb(228, 234, 235);
+  border-radius: 10px;
+}
+.signup_container select {
+  outline: none;
+  padding: 10px;
+  border: 2px solid rgb(228, 234, 235);
+  border-radius: 10px;
+  background-color: transparent;
+  margin-bottom: 10px;
+  color: rgb(97, 107, 112);
+}
+
+.signup_container input:focus,
+.signup_container input:hover {
+  border: 2px solid rgb(55, 112, 255);
+}
+.signup_container button {
+  outline: none;
+  border: none;
+  color: white;
+  font-size: 1.3em;
+  background-color: rgb(55, 112, 255);
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.signup_container p {
+  color: rgb(92, 104, 109);
+  margin-top: 10px;
+  text-align: center;
+}
