@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scholarship Hub</title>
+    <link rel="stylesheet" href="/styles/styles.css" />
+  </head>
+  <body>
+    <nav>
+      <p>Scholarship Hub</p>
+      <ul>
+        <li><a href="/index.html">Explore</a></li>
+        <li><a href="/pages/dashboard.html">Dashboard</a></li>
+        <li>
+          <a
+            href="/pages/organize.html"
+            style="color: rgb(55, 112, 255); font-weight: 600"
+            >Organise a Scholarship</a
+          >
+        </li>
+        <li>
+          <a
+            href="/pages/signin.html"
+            style="
+              background-color: rgb(55, 112, 255);
+              padding: 10px 15px;
+              border-radius: 10px;
+              color: white;
+            "
+            >sign in</a
+          >
+        </li>
+      </ul>
+    </nav>
+    <main>
+      <div class="organise_container">
+        <p>Apply for Scholarship</p>
+        <form action="">
+          <div class="input_col_cont">
+            <div class="input_col">
+              <label for="fname">First Name</label>
+              <input type="text" name="fname" />
+            </div>
+            <div class="input_col">
+              <label for="lname">Last Name</label>
+              <input type="text" name="lname" />
+            </div>
+          </div>
+          <div class="input_col_cont">
+            <div class="input_col">
+              <label for="email">Email</label>
+              <input type="email" name="orgemail" />
+            </div>
+            <div class="input_col">
+              <label for="phno">Phone no</label>
+              <input type="tel" />
+            </div>
+          </div>
+
+          <label for="address">Address</label>
+          <textarea name="address" id="" cols="10" rows="5"></textarea>
+          <label for="clgname">College Name</label>
+          <input type="text" name="clgname" />
+
+          <div class="input_col_cont">
+            <div class="input_col">
+              <label for="prno">Pr No</label>
+              <input type="number" />
+            </div>
+            <div class="input_col">
+              <label for="currentyear">Current Year</label>
+              <input type="text" name="currentyear" />
+            </div>
+            <div class="input_col">
+              <label for="currentsem">Current Sem</label>
+              <input type="text" name="currentsem" />
+            </div>
+          </div>
+          <label for="dept">Department</label>
+          <div class="dept_row">
+            <label>COMP</label>
+            <input type="radio" name="dept" />
+            <label>MECH</label>
+            <input type="radio" name="dept" />
+            <label>ECE</label>
+            <input type="radio" name="dept" />
+          </div>
+          <label for="doc">Upload required Documents</label>
+         <input type="file" >
+          <button class="btn-lg">Submit</button>
+        </form>
+      </div>
+    </main>
+    <footer></footer>
+  </body>
+</html>

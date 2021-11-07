@@ -198,6 +198,53 @@ main {
 .search_bar:focus-within {
   border: 2px solid rgb(55, 112, 255);
 }
+.all_scholarships {
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+.scholarship_details {
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  height: fit-content;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: rgb(0 0 0 / 8%) 0px 1px 4px 0px;
+  padding: 20px;
+  margin: 20px 0px;
+}
+.scholarship_details h2 {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: 600;
+}
+.scholar_dates {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+#date_head {
+  font-size: 1.1em;
+  font-weight: 600;
+  color: rgb(92, 104, 109);
+}
+#date_info {
+  margin-top: 5px;
+}
+#organised_by_head {
+  color: rgb(92, 104, 109);
+
+  margin-top: 10px;
+  font-size: 1.1em;
+  font-weight: 600;
+}
+.scholarship_details a {
+  margin: 10px 0;
+  float: right;
+  text-decoration: underline;
+  font-size: 1.1em;
+}
 
 /* organise hackathon */
 .organise_container {
