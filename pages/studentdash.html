@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Applications</title>
+    <link rel="stylesheet" href="../styles/styles.css" />
+    <style>
+      .student_dash .stud_dash_head {
+        font-size: 40px;
+        color: rgb(39, 51, 57);
+        font-weight: 600;
+      }
+      .list_head {
+        margin: 10px 0;
+        padding: 10px;
+        background-color: rgb(220, 221, 225);
+        border-radius: 10px;
+      }
+      .list_head_1 {
+        margin-top: 10px;
+        padding: 30px 10px;
+        background-color: white;
+        box-shadow: rgba(0, 0, 0, 0.05) 0px 5px 16px 0px;
+        border-radius: 10px;
+      }
+      .list_head p,
+      .list_head_1 p {
+        color: rgb(98, 100, 111);
+        margin: 0px 35px 0px 0;
+        font-size: 18px;
+        display: inline-block;
+      }
+      .list_head_1 p {
+        color: black;
+      }
+      #schol_head {
+        margin-right: 500px;
+      }
+      #app_status{
+        padding: 5px;
+        background-color: rgba(132, 226, 168, 1);
+        border-radius: 10px;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <p>Scholarship Hub</p>
+      <ul>
+        <li><a href="../index.html">Explore</a></li>
+        <li><a href="../pages/orgdash.html">Dashboard</a></li>
+        <li>
+          <a
+            href="../pages/organize.html"
+            style="color: rgb(55, 112, 255); font-weight: 600"
+            >Organise a Scholarship</a
+          >
+        </li>
+        <li>
+          <a
+            href="../pages/signin.html"
+            style="
+              background-color: rgb(55, 112, 255);
+              padding: 10px 15px;
+              border-radius: 10px;
+              color: white;
+            "
+            >sign in</a
+          >
+        </li>
+      </ul>
+    </nav>
+    <main class="student_dash">
+      <p class="stud_dash_head">Your Applications</p>
+      <div class="list_head">
+        <p>#</p>
+        <p id="schol_head">Scholarship</p>
+        <p>Applied On</p>
+        <p>Status</p>
+      </div>
+      <div class="applied_list">
+        <div class="list_head_1">
+          <p>1.</p>
+          <p id="schol_head">scholarship1</p>
+          <p>10-Aug-2021</p>
+          <p id="app_status">Applied</p>
+        </div>
+        <div class="list_head_1">
+          <p>2.</p>
+          <p id="schol_head">scholarship2</p>
+          <p>10-Aug-2021</p>
+          <p id="app_status">Accepted</p>
+        </div>
+        <div class="list_head_1">
+          <p>3.</p>
+          <p id="schol_head">scholarship3</p>
+          <p>10-Aug-2021</p>
+          <p id="app_status">Rejected</p>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

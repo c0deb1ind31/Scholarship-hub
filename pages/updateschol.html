@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Scholarship Hub - organise</title>
+    <title>Scholarship Hub - update scholarship</title>
     <link rel="stylesheet" href="../styles/styles.css" />
     <script>
       function validate() {
@@ -37,7 +37,7 @@
         } else if (reg_start_date.value == "") {
           alert("Please select registeration start date");
           return false;
-        } else if (reg_end_date.value == "") {
+        } else if (req_end_date.value == "") {
           alert("Please select registeration end date");
           return false;
         } else {
@@ -76,7 +76,7 @@
     </nav>
     <main>
       <div class="organise_container">
-        <p>Organise a Scholarship</p>
+        <p>Update Scholarship</p>
         <form onsubmit="return validate()" action="">
           <div class="input_col_cont">
             <div class="input_col">
@@ -106,7 +106,7 @@
               <input type="date" name="regend" id="regend" />
             </div>
           </div>
-          <button class="btn-lg">Submit</button>
+          <button class="btn-lg">update</button>
         </form>
       </div>
     </main>

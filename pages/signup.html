@@ -4,58 +4,106 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Scholarship Hub</title>
-    <link rel="stylesheet" href="styles/styles.css" />
+    <title>Scholarship Hub - signup</title>
+    <link rel="stylesheet" href="../styles/styles.css" />
+    <script>
+      function validate() {
+        var first_name = document.getElementById("fname");
+        var last_name = document.getElementById("lname");
+        var email = document.getElementById("email");
+        var ph_no = document.getElementById("phno");
+        var password = document.getElementById("pass").value;
+        console.log(password);
+        if (first_name.value == "") {
+          alert("Please Enter First Name");
+          return false;
+        } else if (last_name.value == "") {
+          alert("Please Enter Last Name");
+          return false;
+        } else if (email.value == "") {
+          alert("Please Enter Email");
+          return false;
+        } else if (ph_no.value == "") {
+          alert("Please Enter phone number");
+          return false;
+        } else if (password == "") {
+          alert("Enter password");
+          return false;
+        } else if (password.trim().length < 6 || password.trim().length > 10) {
+          alert("Password size must be 6 to 8 characters");
+          return false;
+        } else if (password.search(/[A-Z]/) == -1) {
+          alert("Password must contain atleast one Uppercase alphabet");
+          return false;
+        } else if (password.search(/[a-z]/) == -1) {
+          alert("{assword must contain atleast one Lowercase alphabet");
+          return false;
+        } else if (password.search(/[0-9]/) == -1) {
+          alert("{assword must contain ateast one number");
+          return false;
+        } else {
+          alert("Validated");
+          return true;
+        }
+      }
+    </script>
   </head>
   <body>
-      <nav>
-        <p>Scholarship Hub</p>
-        <ul>
-          <li><a href="index.html">Explore</a></li>
-          <li><a href="">Dashboard</a></li>
-          <li>
-            <a
-              href="pages/organize.html"
-              style="color: rgb(55, 112, 255); font-weight: 600"
-              >Organise a Scholarship</a
-            >
-          </li>
-          <li>
-            <a
-              href="pages/signin.html"
-              style="
-                background-color: rgb(55, 112, 255);
-                padding: 10px 15px;
-                border-radius: 10px;
-                color: white;
-              "
-              >sign in</a
-            >
-          </li>
-        </ul>
-      </nav>
+    <nav>
+      <p>Scholarship Hub</p>
+      <ul>
+        <li><a href="../index.html">Explore</a></li>
+        <li><a href="">Dashboard</a></li>
+        <li>
+          <a
+            href="../pages/organize.html"
+            style="color: rgb(55, 112, 255); font-weight: 600"
+            >Organise a Scholarship</a
+          >
+        </li>
+        <li>
+          <a
+            href="../pages/signin.html"
+            style="
+              background-color: rgb(55, 112, 255);
+              padding: 10px 15px;
+              border-radius: 10px;
+              color: white;
+            "
+            >sign in</a
+          >
+        </li>
+      </ul>
+    </nav>
     <main>
       <div class="signup_container">
         <p id="form_heading">Sign up</p>
-        <form action="" method="post">
+        <form onsubmit="return validate()">
           <label for="usertype">Signup as</label>
-          <select name="usertype">
+          <select name="usertype" id="usertype">
             <option value="organiser">Organizer</option>
             <option value="student">Student</option>
           </select>
           <label for="fname">First Name</label>
-          <input type="text" name="fname" />
+          <input type="text" name="fname" id="fname" placeholder="joe" />
           <label for="lname">Last Name</label>
-          <input type="text" name="lname" />
+          <input type="text" name="lname" id="lname" placeholder="doe" />
           <label for="email">Email</label>
-          <input type="email" name="email" />
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="abx@xyz.com"
+          />
+          <label for="phno">Phone no.</label>
+          <input type="tel" id="phno" />
           <label for="password">Password</label>
-          <input type="password" name="password" id="" />
+          <input type="password" name="password" id="pass" />
           <button class="btn-full" type="submit">Sign up</button>
         </form>
         <p>
           already have an account?
-          <a href="pages/signin.html">sign in</a>
+          <a href="signin.html">sign in</a>
         </p>
       </div>
     </main>
