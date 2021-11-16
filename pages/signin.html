@@ -8,13 +8,26 @@
     <link rel="stylesheet" href="../styles/styles.css" />
     <script>
       function validate() {
+        event.preventDefault();
         var email = document.getElementById("email");
+        var uname = document.getElementById("uname");
         var password = document.getElementById("password").value;
         var user_t = document.getElementById("usertype");
         var usertype = user_t.options[user_t.selectedIndex].value;
-        console.log(usertype);
-        if (email.value == "") {
-          alert("Please Enter Email");
+        var usertype_error = document.getElementById("uterror");
+        var email_error = document.getElementById("emerror");
+        var uname_error = document.getElementById("unanameerror");
+        if (usertype == "select") {
+          usertype_error.innerHTML = "Please select option";
+          usertype_error.style.display = "block";
+          return false;
+        } else if (uname.value == "") {
+          uname_error.innerHTML = "Please Enter User name";
+          uname_error.style.display = "block";
+          return false;
+        } else if (email.value == "") {
+          email_error.innerHTML = "Please Enter Email";
+          email_error.style.display = "block";
           return false;
         } else if (password == "") {
           alert("Please Enter password");
@@ -58,12 +71,63 @@
         <p id="form_heading">Sign in</p>
         <form onsubmit="return validate()">
           <label for="usertype">Signin as</label>
-          <select name="usertype" id="usertype">
+          <p
+            style="
+              font-size: 0.8em;
+              margin: 0 0 5px 0;
+              color: red;
+              text-align: left;
+              display: none;
+            "
+            id="uterror"
+          ></p>
+
+          <select
+            name="usertype"
+            id="usertype"
+            onchange="document.getElementById('uterror').style.display='none'"
+          >
+            <option value="select">select</option>
             <option value="organiser">Organizer</option>
             <option value="student">Student</option>
           </select>
+          <label for="uname">user name</label>
+          <input
+            type="text"
+            name="uname"
+            id="uname"
+            style="margin-bottom: 0px"
+            onchange="document.getElementById('unanameerror').style.display='none'"
+          />
+          <p
+            style="
+              font-size: 0.8em;
+              margin: 0 0 5px 0;
+              color: red;
+              text-align: left;
+              display: none;
+            "
+            id="unanameerror"
+          ></p>
           <label for="email">Email</label>
-          <input type="text" name="email" id="email" />
+          <input
+            type="email"
+            name="email"
+            id="email"
+            style="margin-bottom: 0px"
+            onchange="document.getElementById('emerror').style.display='none'"
+          />
+          <p
+            style="
+              font-size: 0.8em;
+              margin: 0 0 5px 0;
+              color: red;
+              text-align: left;
+              display: none;
+            "
+            id="emerror"
+          ></p>
+
           <label for="password">Password</label>
           <input type="password" name="password" id="password" />
           <button class="btn-full" type="submit">Sign in</button>

@@ -8,23 +8,75 @@
     <link rel="stylesheet" href="../styles/styles.css" />
     <script>
       function validate() {
+        var email_regex =
+          /([a-zA-Z0-9\.-]+)@([a-zA-Z0-9]+).([a-z]{2,10})(.[a-z]{2,10})?/;
+        var phno_regex = /^[789]{1}[0-9]{9}$/;
+        var username_regex = /[a-zA-Z0-9]/;
         var first_name = document.getElementById("fname");
         var last_name = document.getElementById("lname");
         var email = document.getElementById("email");
         var ph_no = document.getElementById("phno");
         var password = document.getElementById("pass").value;
-        console.log(password);
-        if (first_name.value == "") {
+        var user_name = document.getElementById("uname");
+        var selected_gender = undefined;
+        var gender = document.getElementsByName("gender");
+        var usertype = document.getElementById("usertype");
+        var selected_usertype = usertype.options[usertype.selectedIndex].value;
+
+        for (var i = 0; i < gender.length; i++) {
+          if (gender[i].checked) {
+            selected_gender = gender[i].value;
+          }
+        }
+
+        var dob = document.getElementById("dob");
+        var profile_pic = document.getElementById("profilepic");
+
+        var selected_lang = "";
+        var lang = document.getElementsByName("lang");
+        for (var i = 0; i < lang.length; i++) {
+          if (lang[i].checked) {
+            selected_lang = selected_lang + " " + lang[i].value;
+          }
+        }
+        if (selected_usertype == "select") {
+          alert("Please select signup as");
+          return false;
+        } else if (first_name.value == "") {
           alert("Please Enter First Name");
           return false;
         } else if (last_name.value == "") {
           alert("Please Enter Last Name");
           return false;
+        } else if (user_name.value == "") {
+          alert("Please Enter username");
+          return false;
+        } else if (!username_regex.test(user_name.value)) {
+          alert("Please Enter valid username");
+          return false;
         } else if (email.value == "") {
           alert("Please Enter Email");
           return false;
+        } else if (!email_regex.test(email.value)) {
+          alert("Please Enter valid Email");
+          return false;
         } else if (ph_no.value == "") {
           alert("Please Enter phone number");
+          return false;
+        } else if (!phno_regex.test(ph_no.value)) {
+          alert("Please Enter valid phone number");
+          return false;
+        } else if (!selected_gender) {
+          alert("Please select gender");
+          return false;
+        } else if (dob.value == "") {
+          alert("Please select Date of birth");
+          return false;
+        } else if (profile_pic.value == "") {
+          alert("Please select Profile pic");
+          return false;
+        } else if (selected_lang == "") {
+          alert("Please select language");
           return false;
         } else if (password == "") {
           alert("Enter password");
@@ -39,10 +91,35 @@
           alert("{assword must contain atleast one Lowercase alphabet");
           return false;
         } else if (password.search(/[0-9]/) == -1) {
-          alert("{assword must contain ateast one number");
+          alert("password must contain ateast one number");
+          return false;
+        } else if (password.search(/[\@\#\%\$\;\:\.\,]/) == -1) {
+          alert("password must contain ateast one special character");
           return false;
         } else {
-          alert("Validated");
+          alert(
+            "Validated" +
+              "\nSign up as " +
+              selected_usertype +
+              "\nFirst name: " +
+              first_name.value +
+              "\nLast Name: " +
+              last_name.value +
+              "\nUsername: " +
+              user_name.value +
+              "\nEmail:" +
+              email.value +
+              "\nPhone Number: " +
+              ph_no.value +
+              "\nGender: " +
+              selected_gender +
+              "\nBirth Date: " +
+              dob.value +
+              "\nProfile Picture: " +
+              profile_pic.value +
+              "\nLanguages: " +
+              selected_lang
+          );
           return true;
         }
       }
@@ -81,6 +158,7 @@
         <form onsubmit="return validate()">
           <label for="usertype">Signup as</label>
           <select name="usertype" id="usertype">
+            <option value="select">select</option>
             <option value="organiser">Organizer</option>
             <option value="student">Student</option>
           </select>
@@ -88,17 +166,62 @@
           <input type="text" name="fname" id="fname" placeholder="joe" />
           <label for="lname">Last Name</label>
           <input type="text" name="lname" id="lname" placeholder="doe" />
+          <label for="username">Username</label>
+          <input
+            type="text"
+            name="username"
+            id="uname"
+            placeholder="joedoe21"
+          />
           <label for="email">Email</label>
           <input
-            type="email"
+            type="text"
             name="email"
             id="email"
             placeholder="abx@xyz.com"
           />
           <label for="phno">Phone no.</label>
-          <input type="tel" id="phno" />
+          <input type="text" id="phno" />
+          <label for="gender">Gender</label>
+          <div style="display: flex">
+            <label style="font-size: 1em">Male</label>
+            <input type="radio" name="gender" value="male" />
+            <label style="font-size: 1em; margin-left: 10px">Female</label>
+            <input type="radio" name="gender" value="female" />
+          </div>
+          <label for="dob">Birth Date</label>
+          <input type="date" name="dob" id="dob" />
+          <label for="profilepic">Profile Picture</label>
+          <input type="file" name="profilepic" id="profilepic" />
+          <label for="lang">Languages</label>
+          <div class="languages">
+            <input
+              type="checkbox"
+              name="lang"
+              style="display: inline-block"
+              value="english"
+            />
+            <label style="font-size: 1em; display: inline-block">English</label>
+
+            <input
+              type="checkbox"
+              name="lang"
+              style="display: inline-block"
+              value="konkani"
+            />
+            <label style="font-size: 1em; display: inline-block">Konkani</label>
+
+            <input
+              type="checkbox"
+              name="lang"
+              style="display: inline-block"
+              value="hindi"
+            />
+            <label style="font-size: 1em; display: inline-block">Hindi</label>
+          </div>
+
           <label for="password">Password</label>
-          <input type="password" name="password" id="pass" />
+          <input type="text" name="password" id="pass" />
           <button class="btn-full" type="submit">Sign up</button>
         </form>
         <p>
