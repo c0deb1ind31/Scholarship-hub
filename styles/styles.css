@@ -160,30 +160,6 @@ form input:hover {
 main {
   padding: 30px;
 }
-.showcase {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  height: 200px;
-  border-radius: 10px;
-  background-color: white;
-  box-shadow: rgb(0 0 0 / 8%) 0px 1px 4px 0px;
-  padding: 20px;
-}
-.showcase img {
-  height: 100%;
-}
-
-.showcase h1 {
-  font-size: 3.5em;
-  font-weight: 400;
-  color: rgb(97, 107, 112);
-}
-
-.showcase h1 span {
-  color: rgb(55, 112, 255);
-}
-
 .search_bar {
   display: flex;
   margin-top: 20px;
@@ -274,4 +250,16 @@ main {
 .input_col_cont {
   display: flex;
   width: 100%;
+}
+
+/* footer */
+footer{
+  border-top: 2px solid rgb(55, 112, 255);
+  height: 100px;
+  text-align: center;
+}
+footer p{
+  font-size: 1.5em;
+  padding: 30px;
+  color: rgb(92, 104, 109);
 }

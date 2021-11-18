@@ -4,44 +4,56 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Scholarship Hub - update scholarship</title>
+    <title>Scholarship Hub - organise</title>
     <link rel="stylesheet" href="../styles/styles.css" />
     <script>
       function validate() {
+        var link_regex =
+          /^(https\:)\/\/(www)\.[a-zA-Z0-9]+\.[a-zA-Z\/\.\?\&\=]+$/;
         var org_name = document.getElementById("orname");
         var orgnizer_name = document.getElementById("ogname");
         var org_email = document.getElementById("ogemail");
         var schol_title = document.getElementById("scholtitle");
         var schol_desc = document.getElementById("scholdesc");
-        var eligibility = document.getElementById("elig");
+        var doc = document.getElementById("doc");
         var reg_start_date = document.getElementById("regstart");
         var reg_end_date = document.getElementById("regend");
-        if (org_name == "") {
-          alert("Please enter organisation name");
+        var link_error = document.getElementById("link_error");
+        if (
+          org_name == "" &&
+          orgnizer_name.value == "" &&
+          org_email.value == "" &&
+          schol_title.value == "" &&
+          schol_desc.value == "" &&
+          doc.value == ""
+        ) {
           return false;
-        } else if (orgnizer_name.value == "") {
-          alert("Please enter organiser name");
+        } else if (!link_regex.test(doc.value)) {
+          link_error.innerHTML = "please Enter valid link";
+          link_error.style.display = "block";
           return false;
-        } else if (org_email.value == "") {
-          alert("Please enter organiser email");
-          return false;
-        } else if (schol_title.value == "") {
-          alert("Please enter scholarship title");
-          return false;
-        } else if (schol_desc.value == "") {
-          alert("Please enter scholarship description");
-          return false;
-        } else if (eligibility.value == "") {
-          alert("Please enter google document link");
-          return false;
-        } else if (reg_start_date.value == "") {
-          alert("Please select registeration start date");
-          return false;
-        } else if (req_end_date.value == "") {
-          alert("Please select registeration end date");
+        } else if (reg_start_date.value == "" && reg_end_date.value == "") {
           return false;
         } else {
-          alert("Validated");
+          alert(
+            "Validated\n" +
+              "\nOrgansation Name:" +
+              org_name.value +
+              "\nOrganiser Name:" +
+              orgnizer_name.value +
+              "\nOrganiser Email:" +
+              org_email.value +
+              "\nScholarship Title:" +
+              schol_title.value +
+              "\nScholarship Description: " +
+              schol_desc.value +
+              "\nDocument link: " +
+              doc.value +
+              "\nApplication Start Date: " +
+              reg_start_date.value +
+              "  Application End Date:" +
+              reg_end_date.value
+          );
           return true;
         }
       }
@@ -81,35 +93,58 @@
           <div class="input_col_cont">
             <div class="input_col">
               <label for="orgname">Organisation Name</label>
-              <input type="text" name="orgname" id="orname" />
+              <input type="text" name="orgname" id="orname" required />
             </div>
             <div class="input_col">
               <label for="org">Organiser Name</label>
-              <input type="text" name="org" id="ogname" />
+              <input type="text" name="org" id="ogname" required />
             </div>
           </div>
           <label for="orgemail">Organizer Email</label>
-          <input type="email" name="orgemail" id="ogemail" />
+          <input type="email" name="orgemail" id="ogemail" required />
           <label for="title">Scholarship Title</label>
-          <input type="text" name="title" id="scholtitle" />
+          <input type="text" name="title" id="scholtitle" required />
           <label for="desc">Scholarship Discription</label>
-          <textarea name="desc" id="scholdesc" cols="10" rows="5"></textarea>
-          <label for="elig"> Gooogle Docs link</label>
-          <input type="text" id="elig" />
+          <textarea
+            name="desc"
+            id="scholdesc"
+            cols="10"
+            rows="5"
+            required
+          ></textarea>
+          <label for="doc"> Gooogle Docs link</label>
+          <input
+            type="text"
+            id="doc"
+            onchange="document.getElementById('link_error').style.display='none'"
+            required
+          />
+          <p
+            style="
+              font-size: 0.8em;
+              margin: 0 0 5px 0;
+              color: red;
+              text-align: left;
+              display: none;
+            "
+            id="link_error"
+          ></p>
           <div class="input_col_cont">
             <div class="input_col">
               <label for="regstart">Application Start Date</label>
-              <input type="date" name="regstart" id="regstart" />
+              <input type="date" name="regstart" id="regstart" required />
             </div>
             <div class="input_col">
               <label for="regend">Application End Date</label>
-              <input type="date" name="regend" id="regend" />
+              <input type="date" name="regend" id="regend" required />
             </div>
           </div>
-          <button class="btn-lg">update</button>
+          <button class="btn-lg">Submit</button>
         </form>
       </div>
     </main>
-    <footer></footer>
+    <footer>
+      <p>All rights reserved-2021</p>
+    </footer>
   </body>
 </html>

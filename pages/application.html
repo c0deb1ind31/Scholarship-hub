@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../styles/styles.css" />
     <script>
       function validate() {
+        var phno_regex = /^[789]{1}[0-9]{9}$/;
         var fname = document.getElementById("fname");
         var lname = document.getElementById("lname");
         var email = document.getElementById("email");
@@ -18,6 +19,7 @@
         var current_year = document.getElementById("cyear");
         var current_sem = document.getElementById("csem");
         var dept = document.getElementsByName("dept");
+        var doc = document.getElementById("doc");
         var department = undefined;
 
         for (var i = 0; i < dept.length; i++) {
@@ -38,6 +40,9 @@
         } else if (ph_no.value == "") {
           alert("Please enter phone number");
           return false;
+        } else if (!phno_regex.test(ph_no.value)) {
+          alert("Please enter valid phone number");
+          return false;
         } else if (address.value == "") {
           alert("Please enter address");
           return false;
@@ -56,8 +61,35 @@
         } else if (!department) {
           alert("Please select department");
           return false;
+        } else if (doc.value == "") {
+          alert("Please upload document");
+          return false;
         } else {
-          alert("Validated");
+          alert(
+            "Validated\n" +
+              "\nFirst name: " +
+              fname.value +
+              "\nLast Name: " +
+              lname.value +
+              "\nEmail: " +
+              email.value +
+              "\nPhone No :" +
+              ph_no.value +
+              "\nAddress: " +
+              address.value +
+              "\nCollege Name" +
+              clgname.value +
+              "\nPr no:" +
+              pr_no.value +
+              "  Current Year:" +
+              current_year.value +
+              "  Current Semester:" +
+              current_sem.value +
+              "\nDepartment: " +
+              department.value +
+              "\nDocument:" +
+              doc.value
+          );
           return true;
         }
       }
@@ -136,19 +168,21 @@
           </div>
           <label for="dept">Department</label>
           <div class="dept_row">
-            <label>COMP</label>
-            <input type="radio" name="dept" />
-            <label>MECH</label>
-            <input type="radio" name="dept" />
-            <label>ECE</label>
-            <input type="radio" name="dept" />
+            <label style="font-size: 1em; margin-left: 10px">COMP</label>
+            <input type="radio" name="dept" value="computer" />
+            <label style="font-size: 1em; margin-left: 10px">MECH</label>
+            <input type="radio" name="dept" value="mechanical" />
+            <label style="font-size: 1em; margin-left: 10px">ECE</label>
+            <input type="radio" name="dept" value="Electronics" />
           </div>
-          <label for="doc">Upload required Documents</label>
-          <input type="file" />
+          <label for="document">Upload required Documents</label>
+          <input type="file" id="doc" name="document" />
           <button class="btn-lg">Submit</button>
         </form>
       </div>
     </main>
-    <footer></footer>
+    <footer>
+      <p>All rights reserved-2021</p>
+    </footer>
   </body>
 </html>

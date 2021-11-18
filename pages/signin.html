@@ -17,6 +17,8 @@
         var usertype_error = document.getElementById("uterror");
         var email_error = document.getElementById("emerror");
         var uname_error = document.getElementById("unanameerror");
+        var pass_error = document.getElementById("passerror");
+
         if (usertype == "select") {
           usertype_error.innerHTML = "Please select option";
           usertype_error.style.display = "block";
@@ -30,10 +32,19 @@
           email_error.style.display = "block";
           return false;
         } else if (password == "") {
-          alert("Please Enter password");
+          pass_error.innerHTML = "Please Enter Password";
+          pass_error.style.display = "block";
           return false;
         } else {
-          alert("validated");
+          alert(
+            "validated\n" +
+              "\nsigning in as " +
+              usertype +
+              "\nuser name:" +
+              uname.value +
+              "\nEmail:" +
+              email.value
+          );
           return true;
         }
       }
@@ -129,7 +140,22 @@
           ></p>
 
           <label for="password">Password</label>
-          <input type="password" name="password" id="password" />
+          <input
+            type="password"
+            name="password"
+            id="password"
+            onchange="document.getElementById('passerror').style.display='none'"
+          />
+          <p
+            style="
+              font-size: 0.8em;
+              margin: 0 0 5px 0;
+              color: red;
+              text-align: left;
+              display: none;
+            "
+            id="passerror"
+          ></p>
           <button class="btn-full" type="submit">Sign in</button>
         </form>
         <p>
@@ -138,6 +164,8 @@
         </p>
       </div>
     </main>
-    <footer></footer>
+    <footer>
+      <p>All rights reserved-2021</p>
+    </footer>
   </body>
 </html>
